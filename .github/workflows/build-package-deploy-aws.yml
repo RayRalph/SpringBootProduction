@@ -34,7 +34,7 @@ jobs:
       run: ./gradlew build
     - name: Create Timestamp for Version Info
       id: time
-      uses: nansm/get-time-action@v1.1
+      uses: nansm/get-time-action@v2.0
       with:
         format: 'YYYY-MM-DD-HH-mm-ss'
     - name: Make Artifact Available
