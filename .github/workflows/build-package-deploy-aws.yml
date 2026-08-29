@@ -33,8 +33,10 @@ jobs:
     - name: Build with Gradle Wrapper
       run: ./gradlew build
     - name: Create Timestamp for Version Info
-      id: current-time
-      run: echo "time=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
+      id: time
+      uses: nanzm/get-time-action@v1.1
+      with:
+        format: 'YYYY-MM-DD-HH-mm-ss'
     - name: Make Artifact Available
       uses: actions/upload-artifact@v4
       with:
