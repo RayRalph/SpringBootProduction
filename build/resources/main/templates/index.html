@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Wisdom Pet Medicine</title>
+	<title th:text="${logoTitle}">Wisdom Pet Medicine</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<script src="js/prefixfree.min.js"></script>
@@ -23,12 +23,12 @@
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#featured">
-					<h1>Wisdom
+					<h1><span th:text="${corporateName}">Wisdom</span>
 						<span class="subhead">Pet Medicine
-              <span th:each="environment : ${environments}">
-                <span th:text="${environment}  + ' '"></span>
-              </span>
-            </span>
+						  <span th:each="environment : ${environments}">
+							<span th:text="${environment}  + ' '"></span>
+						  </span>
+						</span>
 					</h1>
 				</a>
 			</div><!-- navbar-header -->
