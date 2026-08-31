@@ -1,8 +1,10 @@
-FROM openjdk:8-jdk-alpine
-MAINTAINER mdrsolutions.com
-RUN addgroup -S mygroup && adduser -S myuser -G mygroup
-USER myuser:mygroup
-ARG JAR_FILE=build/libs/SpringBootProdApplication-0.0.1-SNAPSHOT.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
-EXPOSE 5000
+FROM maven:3.9.9-eclipse-temurin-21 AS build
+
+WORKDIR /build
+COPY src /build/src
+COPY pom.xml /build/pom.xml
+RUN mvn clean package
+
+FROM eclipse-temurin:21-jre-alpine
+COPY --from=build /build/target/*.jar /opt/opt.jar
+CMD ["java", "-jar", "/opt/opt.jar"]
