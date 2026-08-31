@@ -13,4 +13,3 @@ Group=spring-boot-prod
 [Install]
 WantedBy=multi-user.target
 
-:
