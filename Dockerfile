@@ -1,5 +1,5 @@
-FROM openjdk:8-jdk-alpine
-MAINTAINER mdrsolutions.com
+FROM eclipse-temurin:21-jre-alpine
+MAINTAINER Raymond Ralph
 RUN addgroup -S mygroup && adduser -S myuser -G mygroup
 USER myuser:mygroup
 ARG JAR_FILE=build/libs/SpringBootProdApplication-0.0.1-SNAPSHOT.jar
