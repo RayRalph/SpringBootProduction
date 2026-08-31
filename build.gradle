@@ -1,6 +1,7 @@
 plugins {
 	id 'org.springframework.boot' version '2.5.4'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'com.microsoft.azure.azurewebapp' version '1.1.0'
 	id 'java'
 }
 
@@ -27,4 +28,24 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+
+
+azurewebapp {
+	subscription = '810a4acf-81a7-4410-b32a-85c32940087b'
+	resourceGroup = 'SpringBoot-Azure-Group'
+	appName = 'SpringBoot-Azure-App'
+	pricingTier = 'B1'
+	region = 'westus'
+	runtime {
+		os = 'Linux'
+		webContainer = 'Java SE'
+		javaVersion = 'Java 8'
+	}
+	appSettings {
+		SPRING_PROFILES_ACTIVE = 'dev,azure'
+	}
+	auth {
+		type = 'azure_cli' // support azure_cli, oauth2, device_code and service_principal
+	}
 }
