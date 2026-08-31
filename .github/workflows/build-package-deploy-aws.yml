@@ -51,7 +51,7 @@ jobs:
         application_name: SpringBootProdApp
         environment_name: SpringBootProdWebApp-env
         version_label: SpringBootProdApp-${{steps.time.outputs.time}}
-        region: eu-north-1
+        region: us-east-1
         deployment_package: build/libs/SpringBootProdApplication.war
 
 
