@@ -52,3 +52,4 @@ jobs:
         region: af-south-1
         tags: latest,${{ github.sha }}
         create_repo: true
+
