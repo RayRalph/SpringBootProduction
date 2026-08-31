@@ -43,15 +43,12 @@ jobs:
         name: "Artifact-${{steps.time.outputs.time}}"
         path: build/libs
         retention-days: 5
-    - name: Beanstalk Deploy for JAR
-      uses: DylanBDev/beanstalk-deploy@initial
+    - uses: vitr/actions-build-and-upload-to-ecs@master
       with:
-        aws_access_key: ${{secrets.AWS_ACCESS_KEY_ID}}
-        aws_secret_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-        application_name: SpringBootProdApp
-        environment_name: SpringBootProdApp-env
-        version_label: SpringBootProdApp-${{steps.time.outputs.time}}
-        region: eu-north-1
-        deployment_package: build/libs/SpringBootProdApplication-0.0.1-SNAPSHOT.jar
-
-
+        access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+        repo: docker/springboot-docker-image
+        region: af-south-1
+        tags: latest,${{ github.sha }}
+        create_repo: true
