@@ -43,12 +43,12 @@ jobs:
         name: "Artifact-${{steps.time.outputs.time}}"
         path: build/libs
         retention-days: 5
-    - name: Beanstalk Deploy for JAR
+    - name: Beanstalk Deploy for WAR
       uses: DylanBDev/beanstalk-deploy@initial
       with:
         aws_access_key: ${{secrets.AWS_ACCESS_KEY_ID}}
         aws_secret_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-        application_name: SpringBootProdWebApp
+        application_name: SpringBootProdApp
         environment_name: SpringBootProdWebApp-env
         version_label: SpringBootProdApp-${{steps.time.outputs.time}}
         region: eu-north-1
