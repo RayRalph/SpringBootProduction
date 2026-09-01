@@ -32,7 +32,8 @@ test {
 
 
 azurewebapp {
-	subscription = '810a4acf-81a7-4410-b32a-85c32940087b'
+	subscription = 'e139f4b0-eae0-4798-b41b-b2193091c4f5'
+//	subscription = '810a4acf-81a7-4410-b32a-85c32940087b'
 	resourceGroup = 'SpringBoot-Azure-Group'
 	appName = 'SpringBoot-Azure-App'
 	pricingTier = 'B1'
