@@ -1,11 +1,11 @@
 plugins {
 	id 'org.springframework.boot' version '2.5.4'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'com.microsoft.azure.azurewebapp' version '1.1.0'
+	id 'com.microsoft.azure.azurewebapp' version '1.11.0'
 	id 'java'
 }
 
-group = 'com.mdrsolutions'
+group = 'com.rayralph'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '8'
 
@@ -30,12 +30,11 @@ test {
 	useJUnitPlatform()
 }
 
-
 azurewebapp {
-	subscription = 'e139f4b0-eae0-4798-b41b-b2193091c4f5' // '810a4acf-81a7-4410-b32a-85c32940087b'
+	subscription = '810a4acf-81a7-4410-b32a-85c32940087b'
 	resourceGroup = 'SpringBoot-Azure-Group'
 	appName = 'SpringBoot-Azure-App'
-	pricingTier = 'F1'
+	pricingTier = 'B1'
 	region = 'westus'
 	runtime {
 		os = 'Linux'
