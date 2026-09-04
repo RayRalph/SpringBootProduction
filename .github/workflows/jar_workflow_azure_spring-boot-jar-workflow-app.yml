@@ -6,7 +6,7 @@ name: Build and deploy JAR app to Azure Web App - spring-boot-jar-workflow-app
 on:
   push:
     branches:
-      - jar_workflow_azure
+      - main
   workflow_dispatch:
 
 jobs:
@@ -24,14 +24,14 @@ jobs:
           java-version: '11'
           distribution: 'microsoft'
 
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Build with Gradle
+        run: ./gradlew clean build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: 'build/libs/SpringBootProdApplication-0.0.1-SNAPSHOT.jar'
 
   deploy:
     runs-on: ubuntu-latest
